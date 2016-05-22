@@ -1,24 +1,22 @@
+CC = g++
+CFLAGS = -g -Wall
+TARGET = sort
+OBJS = BubbleSort.o InsertionSort.o SortingAlgo.o
 
-SRCS = src/BubbleSort.cpp src/InsertionSort.cpp src/SortingAlgo.cpp
-OBJS = ${SRCS:.c=.o}
-
-.cpp.o :
-		$(CXX) $(CPPFLAGS) -c $<
    
-all: sort.exe
+all: sort
    
-sort.exe: $(OBJS)
-		$(CXX) -o $@ $(OBJS)
+sort: $(OBJS)
+		$(CC) $(CFLAGS) -o sort $(OBJS)
 		
-$(OBJS) : include/ISort.h include/BubbleSort.h include/InsertionSort.h
-#BubbleSort.o : include/BubbleSort.h include/ISort.h
-##		g++ -c src/BubbleSort.cpp
-#
-#SortingAlgo.o: src/SortingAlgo.cpp include/ISort.h include/BubbleSort.h
-#	    g++ -c src/SortingAlgo.cpp
-#
-#InsertionSort.o: src/InsertionSort.cpp include/InsertionSort.h include/ISort.h
-#		g++ -c src/InsertionSort.cpp
+BubbleSort.o : src/BubbleSort.cpp include/BubbleSort.h include/ISort.h
+		$(CC) $(CFLAGS) -c src/BubbleSort.cpp
+
+InsertionSort.o: src/InsertionSort.cpp include/InsertionSort.h include/ISort.h
+		$(CC) $(CFLAGS) -c src/InsertionSort.cpp
+
+SortingAlgo.o: src/SortingAlgo.cpp include/ISort.h include/BubbleSort.h
+	    $(CC) $(CFLAGS) -c src/SortingAlgo.cpp
 
 clean: 
-		rm sort.exe $(OBJS)
+		rm sort $(OBJS)
