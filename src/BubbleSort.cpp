@@ -39,3 +39,11 @@ void BubbleSort::print_num(const int* array, int size){
             cout << endl;
 }
 
+void BubbleSort::print_alpha(const string* array, int size){
+
+	for (int i = 0; i < size; i++){
+		cout << array[i] << " ";
+	}
+	cout << endl;
+
+}

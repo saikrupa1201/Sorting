@@ -6,14 +6,27 @@ using namespace std;
 int* InsertionSort::sort_numeric(const int* array, int size) {
 		int* temp = (int* )array;
 
+		for (int i = 0; i < size; i++){
+			for (int j = i+1; j > 0; j--){
+				if(temp[j] < temp[j-1]){
+					std:swap(temp[j],temp[j-1]);
+				}
+			}
+		}
 
 		return temp;
 	}
 
 
 string* InsertionSort::sort_alpha(const string* array, int size) {
-		string* temp = (string* )array;
+            string* temp = (string* )array;
+                    for (int i = 0; i < size - 1; i++) {
+                                    for (int j = i+1; j > 0; j--) {
+                                                        if (temp[j].compare(temp[j - 1]) < 0) {
+                                                                                std::swap(temp[j], temp[j - 1]);
+                                                                                                }
+                                                                    }
+                                            }
 
-
-		return temp;
+                            return temp;
 }
