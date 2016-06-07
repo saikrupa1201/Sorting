@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -g -Wall -Iinclude
 TARGET = sort
-OBJS = BubbleSort.o InsertionSort.o SortingAlgo.o SelectionSort.o
-SRCS = src/BubbleSort.cpp src/InsertionSort.cpp src/SortingAlgo.cpp src/SelectionSort.cpp
+OBJS = BubbleSort.o InsertionSort.o SortingAlgo.o SelectionSort.o LinkedList.o
+SRCS = src/BubbleSort.cpp src/InsertionSort.cpp src/SortingAlgo.cpp src/SelectionSort.cpp src/LinkedList.cpp
 OBJS = $(SRCS:.cpp=.o) 
 all: sort
    
